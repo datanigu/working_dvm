@@ -466,7 +466,7 @@
   fields( 48,10) = 'GrGn0048  ',
   fields( 49,10) = 'GrGn0049  ',
   fields( 50,10) = 'GrGn0050  ',
-&
+/
 
 # Parameter for Diagnostics of per level statistics:
 #-----------------
@@ -492,4 +492,4 @@
     stat_fname(1)= 'statsPP',
     stat_fname(2)= 'statsNfix',
     stat_fname(3)= 'statsDenit',
- &
+ /

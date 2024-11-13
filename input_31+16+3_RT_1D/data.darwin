@@ -18,9 +18,9 @@
  alpfe= 0.04,
  freefemax = .1E-3,
  depthfesed= 7000.,
- scav_rat= 0.2,
+ !scav_rat= 0.2,
  scav_inter=9.14351851851E-7,
- scav_r_poppoc=0.786161635,
+ !scav_r_poppoc=0.786161635,
  kdoc=  0.5000000000000000E-7,  ! 1/30day
  kdop=  0.5000000000000000E-7,  ! 1/30day
  kdon=  0.5000000000000000E-7,  ! 1/30day
