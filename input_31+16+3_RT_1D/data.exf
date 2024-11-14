@@ -6,10 +6,10 @@
 # exf_albedo        = 0.15,
  exf_iprec         = 32,
  exf_yftype        = 'RL',
-# useExfYearlyFields= .TRUE.,
+ useExfYearlyFields= .TRUE.,
 # twoDigitYear      = .TRUE.,
- useExfCheckRange  = .FALSE.,
- repeatPeriod = 31104000.,
+ useExfCheckRange  = .TRUE.,
+# repeatPeriod = 31104000.,
  &
 #
  &EXF_NML_02
