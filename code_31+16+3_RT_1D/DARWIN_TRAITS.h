@@ -99,6 +99,7 @@ C     R_PICPOC           :: [mmol PIC (mmol POC)^-1]   inorganic-organic carbon 
 C
 C     biosink            :: [m s^-1]                   sinking velocity (positive downwards)
 C     bioswim            :: [m s^-1]                   upward swimming velocity (positive upwards)
+C     bioswimDVM         :: [m s^-1]                   swimming speed for diel vertically migrating plankton (pos. upwards)
 C
 C     respRate           :: [s^-1]                     respiration rate
 C     PCmax              :: [s^-1]                     maximum carbon-specific growth rate
@@ -162,6 +163,11 @@ C     ksatDON            :: [mmol N m^-3]   half-saturation of DON for bacterial
 C     ksatDOC            :: [mmol C m^-3]   half-saturation of DOC for bacterial growth
 C     ksatDOP            :: [mmol P m^-3]   half-saturation of DOP for bacterial growth
 C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacterial growth
+C- PAR preference
+C     PARpref       :: [µEin/m2/s]     preferred PAR isolume for determining DVM
+
+
+
       COMMON /DARWIN_TRAITS_r/
      &    Xmin,
      &    amminhib,
@@ -194,6 +200,7 @@ C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacteria
      &    R_PICPOC,
      &    biosink,
      &    bioswim,
+     &    bioswimDVM,
      &    respRate,
      &    PCmax,
      &    Qnmax,
@@ -245,7 +252,8 @@ C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacteria
      &    ksatDON,
      &    ksatDOC,
      &    ksatDOP,
-     &    ksatDOFe
+     &    ksatDOFe,
+     &    PARpref
       _RL Xmin(nplank)
       _RL amminhib(nplank)
       _RL acclimtimescl(nplank)
@@ -277,6 +285,7 @@ C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacteria
       _RL R_PICPOC(nplank)
       _RL biosink(nplank)
       _RL bioswim(nplank)
+      _RL bioswimDVM(nplank)
       _RL respRate(nplank)
       _RL PCmax(nplank)
       _RL Qnmax(nplank)
@@ -329,6 +338,8 @@ C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacteria
       _RL ksatDOC(nplank)
       _RL ksatDOP(nplank)
       _RL ksatDOFe(nplank)
+      _RL PARpref(nplank)
+
 
 C--   COMMON /DARWIN_DEPENDENT_TRAITS_i/ Dependent and constant (not read-in) parameters
 C     group  :: which group this type belongs to

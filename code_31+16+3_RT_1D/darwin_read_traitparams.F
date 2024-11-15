@@ -196,6 +196,8 @@
      &    a_bioswim,
      &    a_bioswim_denom,
      &    b_bioswim,
+     &    a_bioswimDVM,
+     &    b_bioswimDVM,
      &    a_ppSig,
      &    a_ppOpt,
      &    b_ppOpt,
@@ -270,7 +272,9 @@
      &    a_kexcFe,
      &    b_kexcFe,
      &    grp_ExportFracPreyPred,
-     &    grp_ass_eff
+     &    grp_ass_eff,     
+     &    a_PARpref,
+     &    b_PARpref
 
 
 
@@ -474,6 +478,8 @@ C     used to be 22.4
       a_bioswim = 0.00 _d 0 / pday
       a_bioswim_denom = 1. _d 0
       b_bioswim = 0.18 _d 0
+      a_bioswimDVM = 3.0 _d -2 !Bianchi et al. 2013
+      b_bioswimDVM = 0.00 _d 0 !Not sure if should be size dependent
       a_ppSig = 1.0 _d 0
       a_ppOpt = 1024. _d 0
       b_ppOpt = 0.00 _d 0
@@ -560,6 +566,8 @@ C     [Mongin 2006]
       b_kexcFe = 0.00 _d 0
       grp_ExportFracPreyPred = 0.5 _d 0
       grp_ass_eff = 0.7 _d 0
+      a_PARpref = 0.0046 _d 0![uE/m2/s=~10^-3 W/m2, Bianchi_etal.2013]
+      b_PARpref = 0.00 _d 0
 
       READ(UNIT=iUnit, NML=DARWIN_TRAIT_PARAMS)
 

@@ -258,6 +258,7 @@ C plankton elemental ratios
 C plankton sinking and swimming
         biosink(jp) = a_biosink(g) * biovol(jp)**b_biosink(g)
         bioswim(jp) = a_bioswim(g) * biovol(jp)**b_bioswim(g)
+        bioswimDVM(jp) = a_bioswimDVM(g) * biovol(jp)**b_bioswimDVM(g)
 
 C respRate rate is given in terms of carbon content
         qcarbon(jp) = a_qcarbon(g) * biovol(jp)**b_qcarbon(g)
@@ -302,6 +303,10 @@ c EXCRETION
         kexcp(jp)  = a_kexcp(g)  * biovol(jp)**b_kexcp(g)
         kexcsi(jp) = a_kexcsi(g) * biovol(jp)**b_kexcsi(g)
         kexcfe(jp) = a_kexcfe(g) * biovol(jp)**b_kexcfe(g)
+
+C PAR preference for DVM
+        PARpref(jp) = a_PARpref(g)*biovol(jp)**b_PARpref(g)
+
 
         IF (darwin_effective_ksat) THEN
 c        compute effective half sat for uptake of non-quota elements

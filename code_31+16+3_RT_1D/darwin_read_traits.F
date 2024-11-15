@@ -75,6 +75,7 @@
      &    R_PICPOC,
      &    biosink,
      &    bioswim,
+     &    bioswimDVM,
      &    respRate,
      &    PCmax,
      &    Qnmax,
@@ -126,7 +127,8 @@
      &    ksatDON,
      &    ksatDOC,
      &    ksatDOP,
-     &    ksatDOFe
+     &    ksatDOFe,
+     &    PARpref
 
       NAMELIST/DARWIN_DEPENDENT_TRAITS/
 #ifndef DARWIN_ALLOW_GEIDER
