@@ -106,6 +106,8 @@ C  k                    :: vertical level
       _RL bioswimDVMdn(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL SwDr(1-OLx:sNx+OLx, 1-OLy:sNy+OLy,Nr,nplank) 
       INTEGER max_loc(1-OLx:sNx+OLx, 1-OLy:sNy+OLy,nplank)
+      _RL sumPAR
+      _RL surfacePAR
       _RL photoTempFunc(nplank)
       _RL hetTempFunc(nplank)
       _RL grazTempFunc(nplank)
@@ -661,6 +663,9 @@ C Finding swim direction to go to max grazer gain, D.T.
           SwDr(i, j,1:max_loc(i,j,iTr)-1, iTr) = -1 _d 0
           SwDr(i, j, max_loc(i,j,iTr)+1:Nr,iTr) = 1 _d 0
         ENDIF
+      ENDDO !I
+      ENDDO !j
+      ENDDO !iTr
 
 C Find swim direction based on light and max grazer gain
 C Day
@@ -676,37 +681,74 @@ C If PAR at top 0 (or below some light level in future),
 C and grazphy < food max, swim toward food max
 C If PAR at top 0 (or below some light level in future),
 C and grazphy = food max, don't swim; stay put
-       DO k=1,Nr
-         IF (sum(PAR(i,j,1,:)) .GT. 0) THEN !Day
-           IF (sum(PAR(i,j,1,:)) .LT. PARpref(iTr)) THEN!Used to be last
-              bioswimDVMup(i,j,k, iTr) = 0 _d 0
-              bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-           ELSEIF (sum(PARl) .GT. PARpref(iTr)) THEN
+
+      DO i=iMin,iMax
+      DO j=jMin,jMax
+        surfacePAR = sum(PAR(i,j,1,:))
+      DO k=1,Nr
+       sumPAR = sum(PAR(i,j,k,:))
+      DO iTr=1,nplank
+       print*,'surface PAR', surfacePAR
+       print*,'PAR outside swim logic',sum(PAR(i,j,k,:))
+       print*,'i, j, k, iTr',i,j,k,iTr
+         IF (surfacePAR .GT. 0) THEN !Day
+           IF (sumPAR .GT. PARpref(iTr)) THEN
+              print*, 'sumPAR greater than PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
-           ELSEIF (sum(PARl). LT. PARpref(iTr)) THEN
+                 IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+                 ENDIF
+           ELSEIF (sumPAR. LT. PARpref(iTr)) THEN
+              print*, 'sumPAR less than PARpref'
               bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
               bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-           ELSEIF (sum(PARl) .EQ. PARpref(iTr)) THEN
+                 IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+                 ENDIF              
+
+           ELSEIF (sumPAR .EQ. PARpref(iTr)) THEN
+              print*, 'sumPAR equal PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-        ENDIF
-       ELSE !Night
-        IF (SwDr(i,j,k,iTr) .GT. 0.0) THEN
-              bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
-              bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-        ELSEIF (SwDr(i,j,k,iTr) .EQ. 0.0) THEN
+                 IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+                 ENDIF
+           ENDIF
+         ELSE !Night
+           print*, 'Night'
+           IF (SwDr(i,j,k,iTr) .GT. 0.0) THEN
+               bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
+               bioswimDVMdn(i,j,k, iTr) = 0 _d 0                 
+              IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+              ENDIF
+           ELSEIF (SwDr(i,j,k,iTr) .EQ. 0.0) THEN
+
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-        ELSE 
+               IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+              ENDIF
+           ELSE 
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
-        ENDIF
+                IF (iTr .GT. 30) THEN
+                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+                ENDIF
+           ENDIF
         ENDIF
        ENDDO !k
        ENDDO !iTr
        ENDDO !j
-       ENDDO !
+       ENDDO !i
+
 
 
 
