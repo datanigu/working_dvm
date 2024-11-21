@@ -142,4 +142,9 @@
  b_kgrazesat(:)= 9*0,
 #
  grp_ass_eff(:,:)=100*0.32,
+
+#
+# a_bioswimDVM(:) = 8*0., 0.03, 1*0. !This is the ideal speed
+ a_bioswimDVM(:) = 8*0., 0.03, 1*0.0,
+
  /
