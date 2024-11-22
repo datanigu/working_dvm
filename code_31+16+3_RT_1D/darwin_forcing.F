@@ -687,60 +687,60 @@ C and grazphy = food max, don't swim; stay put
       DO k=1,Nr
        sumPAR = sum(PAR(i,j,k,:))
       DO iTr=1,nplank
-       print*,'surface PAR', surfacePAR
-       print*,'PAR outside swim logic',sum(PAR(i,j,k,:))
-       print*,'i, j, k, iTr',i,j,k,iTr
+C       print*,'surface PAR', surfacePAR
+C       print*,'PAR outside swim logic',sum(PAR(i,j,k,:))
+C       print*,'i, j, k, iTr',i,j,k,iTr
          IF (surfacePAR .GT. 0) THEN !Day
            IF (sumPAR .GT. PARpref(iTr)) THEN
-              print*, 'sumPAR greater than PARpref'
+C              print*, 'sumPAR greater than PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
                  IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
                  ENDIF
            ELSEIF (sumPAR. LT. PARpref(iTr)) THEN
-              print*, 'sumPAR less than PARpref'
+C              print*, 'sumPAR less than PARpref'
               bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
               bioswimDVMdn(i,j,k, iTr) = 0 _d 0
                  IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
                  ENDIF              
 
            ELSEIF (sumPAR .EQ. PARpref(iTr)) THEN
-              print*, 'sumPAR equal PARpref'
+C              print*, 'sumPAR equal PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = 0 _d 0
                  IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
                  ENDIF
            ENDIF
          ELSE !Night
-           print*, 'Night'
-           print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
+C           print*, 'Night'
+C           print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
            IF (SwDr(i,j,k,iTr) .GT. 0.0) THEN
                bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0                 
               IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
               ENDIF
            ELSEIF (SwDr(i,j,k,iTr) .EQ. 0.0) THEN
 
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0
                IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
               ENDIF
            ELSE 
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
                 IF (iTr .GT. 30) THEN
-                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
                 ENDIF
            ENDIF
         ENDIF
