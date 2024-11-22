@@ -673,8 +673,7 @@ C If PAR at top >0 (or above some level in future),
 C and PARtot > PARpref, swim down (toward PARpref)
 C If PAR at top >0 and PARtot < PARpref, swim up 
 C If PAR at top >0 and PARtot = PARpref, no swim
-C If PAR at top >0 and PAR at top < PARpref (i.e., surface
-C is darker than light preference), no swim
+
 
 C Night
 C If PAR at top 0 (or below some light level in future),
@@ -720,6 +719,7 @@ C and grazphy = food max, don't swim; stay put
            ENDIF
          ELSE !Night
            print*, 'Night'
+           print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
            IF (SwDr(i,j,k,iTr) .GT. 0.0) THEN
                bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0                 
