@@ -100,8 +100,10 @@ C  k                    :: vertical level
       _RL ptr(nDarwin), gtr(nDarwin), PARl(nlam)
       _RL chlout(nPhoto)
       _RL diagsl(darwin_nDiag)
-      _RL predgrazc(nplank)
-      _RL predgrazc_nd(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
+C      _RL predgrazc(nplank)
+C      _RL predgrazc_nd(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
+      _RL sumprey_plank(nplank)
+      _RL sumprey_plank_nd(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL bioswimDVMup(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL bioswimDVMdn(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL SwDr(1-OLx:sNx+OLx, 1-OLy:sNy+OLy,Nr,nplank) 
@@ -600,7 +602,7 @@ C-      default (face fit into global-IO-array)
         CALL DARWIN_PLANKTON(
      I                 ptr,
      U                 gtr,
-     O                 chlout, diagsl,predgrazc,
+     O                 chlout, diagsl,sumprey_plank,
      I                 PARl, photoTempFunc,
      I                 hetTempFunc,
      I                 grazTempFunc,
@@ -613,7 +615,8 @@ C-      default (face fit into global-IO-array)
          diags(i, j, k, l) = diagsl(l)
         ENDDO
 
-        predgrazc_nd(i,j,k,:) = predgrazc
+C        predgrazc_nd(i,j,k,:) = predgrazc
+        sumprey_plank_nd(i,j,k,:) = sumprey_plank
 
 #ifdef DARWIN_ALLOW_CONS
         DARWIN_Nfix(i,j,k,bi,bj)   = DARWIN_Nfix(i,j,k,bi,bj)
@@ -649,9 +652,10 @@ C-      default (face fit into global-IO-array)
       enddo !end k
 
 C ######### Fixing ###########
-C Finding swim direction to go to max grazer gain, D.T.
+C Finding swim direction to go to max food availablity, D.T.
       SwDr = 0 _d 0
-      max_loc = MAXLOC(predgrazc_nd, DIM=3)
+C      max_loc = MAXLOC(predgrazc_nd, DIM=3)
+      max_loc = MAXLOC(sumprey_plank_nd, DIM=3)
       DO i=iMin,iMax
       DO j=jMin,jMax
       DO iTr=1,nplank

@@ -6,7 +6,7 @@ C !INTERFACE: ==========================================================
       SUBROUTINE DARWIN_PLANKTON(
      I     Ptr,
      U     gTr,
-     O     chlout, diags,predgrazc,
+     O     chlout, diags,sumprey_plank,
      I     PAR, 
      I     photoTempFunc, hetTempFunc, grazTempFunc, reminTempFunc,
      I     mortTempFunc, mort2TempFunc, uptakeTempFunc,
@@ -257,6 +257,7 @@ C for grazing
       _RL preygrazexp(nplank)
       _RL grazrate   (nplank)
       _RL predgrazc  (nplank)
+      _RL sumprey_plank (nplank)
 #ifdef DARWIN_ALLOW_NQUOTA
       _RL predgrazn  (nplank)
 #endif
@@ -1230,6 +1231,7 @@ C==== Grazing ==========================================================
        preygrazexp(j) = 0.0
        grazrate(j)  = 0.0
        predgrazc(j)  = 0.0
+       sumprey_plank(j) = 0.0
 #ifdef DARWIN_ALLOW_NQUOTA
        predgrazn(j)  = 0.0
 #endif
@@ -1295,6 +1297,7 @@ C       regulate grazing near full quota
         ENDIF
         ENDDO
         sumprey = MAX(0.0, sumprey - phygrazmin)
+        sumprey_plank(jz) = sumprey
         sumpref = MAX(phygrazmin, sumpref)
         tmp = grazemax(jz)*grazTempFunc(jz)**tempGraz(jz)*
      &    (sumprey**hollexp/(sumprey**hollexp+kgrazesat(jz)**hollexp))*
