@@ -732,7 +732,6 @@ C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
 C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
               ENDIF
            ELSEIF (SwDr(i,j,k,iTr) .EQ. 0.0) THEN
-
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0
                IF (iTr .GT. 30) THEN
@@ -752,6 +751,28 @@ C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
        ENDDO !iTr
        ENDDO !j
        ENDDO !i
+
+
+        DO i=iMin,iMax
+        DO j=jMin,jMax
+          IF (sum(PAR(i,j,1,:)) .EQ. 0) THEN
+                  print*,'Night'
+            DO iTr=32,46
+              print*,'sumprey_plank_nd',sumprey_plank_nd(i,j,:,iTr)
+              print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
+            DO k=1,Nr
+                print*,'i,j,k,Tracer number ', i,j,k,iTr
+                print*,'SwDr',SwDr(i,j,k,iTr)
+
+
+                print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
+                print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
+            ENDDO
+            ENDDO
+          ENDIF
+        ENDDO
+        ENDDO
+
 
 
 
