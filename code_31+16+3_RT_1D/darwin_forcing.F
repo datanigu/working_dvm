@@ -100,8 +100,6 @@ C  k                    :: vertical level
       _RL ptr(nDarwin), gtr(nDarwin), PARl(nlam)
       _RL chlout(nPhoto)
       _RL diagsl(darwin_nDiag)
-C      _RL predgrazc(nplank)
-C      _RL predgrazc_nd(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL sumprey_plank(nplank)
       _RL sumprey_plank_nd(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
       _RL bioswimDVMup(1-OLx:sNx+OLx, 1-OLy:sNy+OLy, Nr,nplank)
@@ -615,7 +613,6 @@ C-      default (face fit into global-IO-array)
          diags(i, j, k, l) = diagsl(l)
         ENDDO
 
-C        predgrazc_nd(i,j,k,:) = predgrazc
         sumprey_plank_nd(i,j,k,:) = sumprey_plank
 
 #ifdef DARWIN_ALLOW_CONS
@@ -651,10 +648,9 @@ C        predgrazc_nd(i,j,k,:) = predgrazc
       enddo !end j
       enddo !end k
 
-C ######### Fixing ###########
-C Finding swim direction to go to max food availablity, D.T.
+
+C Find DVM swim direction to go to max food availablity
       SwDr = 0 _d 0
-C      max_loc = MAXLOC(predgrazc_nd, DIM=3)
       max_loc = MAXLOC(sumprey_plank_nd, DIM=3)
       DO i=iMin,iMax
       DO j=jMin,jMax
@@ -671,19 +667,18 @@ C      max_loc = MAXLOC(predgrazc_nd, DIM=3)
       ENDDO !j
       ENDDO !iTr
 
-C Find swim direction based on light and max grazer gain
+C Find DVM swim direction based on light and max food availability
 C Day
-C If PAR at top >0 (or above some level in future), 
-C and PARtot > PARpref, swim down (toward PARpref)
+C If PAR at top >0 (or above some level in future),
+C swim down (toward PARpref)
 C If PAR at top >0 and PARtot < PARpref, swim up 
 C If PAR at top >0 and PARtot = PARpref, no swim
 
-
-C Night
+C Night--see logic in SwDr above
 C If PAR at top 0 (or below some light level in future),
-C and grazphy < food max, swim toward food max
+C and prey available at that depth < food max, swim toward food max
 C If PAR at top 0 (or below some light level in future),
-C and grazphy = food max, don't swim; stay put
+C and prey available at that depth = food max, don't swim; stay put
 
       DO i=iMin,iMax
       DO j=jMin,jMax
@@ -691,94 +686,34 @@ C and grazphy = food max, don't swim; stay put
       DO k=1,Nr
        sumPAR = sum(PAR(i,j,k,:))
       DO iTr=1,nplank
-C       print*,'surface PAR', surfacePAR
-C       print*,'PAR outside swim logic',sum(PAR(i,j,k,:))
-C       print*,'i, j, k, iTr',i,j,k,iTr
+
          IF (surfacePAR .GT. 0) THEN !Day
            IF (sumPAR .GT. PARpref(iTr)) THEN
-C              print*, 'sumPAR greater than PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
-                 IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-                 ENDIF
            ELSEIF (sumPAR. LT. PARpref(iTr)) THEN
-C              print*, 'sumPAR less than PARpref'
               bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
-              bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-                 IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-                 ENDIF              
-
+              bioswimDVMdn(i,j,k, iTr) = 0 _d 0             
            ELSEIF (sumPAR .EQ. PARpref(iTr)) THEN
-C              print*, 'sumPAR equal PARpref'
               bioswimDVMup(i,j,k, iTr) = 0 _d 0
               bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-                 IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-                 ENDIF
            ENDIF
          ELSE !Night
-C           print*, 'Night'
-C           print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
            IF (SwDr(i,j,k,iTr) .GT. 0.0) THEN
                bioswimDVMup(i,j,k, iTr) = bioswimDVM(iTr)
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0                 
-              IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-              ENDIF
            ELSEIF (SwDr(i,j,k,iTr) .EQ. 0.0) THEN
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = 0 _d 0
-               IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-              ENDIF
            ELSE 
                bioswimDVMup(i,j,k, iTr) = 0 _d 0
                bioswimDVMdn(i,j,k, iTr) = bioswimDVM(iTr)
-                IF (iTr .GT. 30) THEN
-C                 print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-C                 print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-                ENDIF
            ENDIF
         ENDIF
        ENDDO !k
        ENDDO !iTr
        ENDDO !j
        ENDDO !i
-
-
-        DO i=iMin,iMax
-        DO j=jMin,jMax
-          IF (sum(PAR(i,j,1,:)) .EQ. 0) THEN
-                  print*,'Night'
-            DO iTr=32,46
-              print*,'sumprey_plank_nd',sumprey_plank_nd(i,j,:,iTr)
-              print*,'max_loc(i,j,iTr)',max_loc(i,j,iTr)
-            DO k=1,Nr
-                print*,'i,j,k,Tracer number ', i,j,k,iTr
-                print*,'SwDr',SwDr(i,j,k,iTr)
-
-
-                print*,'bioswimDVMup',bioswimDVMup(i,j,k,iTr)
-                print*,'bioswimDVMdn',bioswimDVMdn(i,j,k,iTr)
-            ENDDO
-            ENDDO
-          ENDIF
-        ENDDO
-        ENDDO
-
-
-
-
-
-C ############## End fix D.T.--and make sure goes with call to sinking ############
-
 
       CALL TIMER_STOP('DARWIN_PLANKTON [DARWIN_FORCING]',myThid)
 
