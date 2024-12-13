@@ -260,6 +260,12 @@ C plankton sinking and swimming
         bioswim(jp) = a_bioswim(g) * biovol(jp)**b_bioswim(g)
         bioswimDVM(jp) = a_bioswimDVM(g) * biovol(jp)**b_bioswimDVM(g)
 
+C light-dependent mortality for DVM
+        mortmaxDVM(jp) = a_mortmaxDVM(g) * biovol(jp)**b_mortmaxDVM(g)
+        ksatDVM(jp) = a_ksatDVM(g)* biovol(jp)**b_ksatDVM(g)
+        ksatPARDVM(jp) = a_ksatPARDVM(g)* biovol(jp)**b_ksatPARDVM(g)
+        ExportFracDVM(jp) = a_ExportFracDVM(g)
+
 C respRate rate is given in terms of carbon content
         qcarbon(jp) = a_qcarbon(g) * biovol(jp)**b_qcarbon(g)
         respRate(jp) = a_respRate_c(g)

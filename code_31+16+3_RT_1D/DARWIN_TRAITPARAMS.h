@@ -454,7 +454,14 @@ C
      &    grp_ExportFracPreyPred,
      &    grp_ass_eff,     
      &    a_PARpref,
-     &    b_PARpref
+     &    b_PARpref,
+     &    a_mortmaxDVM,
+     &    b_mortmaxDVM,
+     &    a_ksatDVM,
+     &    b_ksatDVM,
+     &    a_ksatPARDVM,
+     &    b_ksatPARDVM,
+     &    a_ExportFracDVM
       _RL logvolbase
       _RL logvolinc
       _RL biovol0(nGroup)
@@ -591,6 +598,13 @@ C
       _RL grp_ass_eff(nGroup,nGroup)
       _RL a_PARpref(nGroup)
       _RL b_PARpref(nGroup)
+      _RL a_mortmaxDVM(nGroup)
+      _RL b_mortmaxDVM(nGroup)
+      _RL a_ksatDVM(nGroup)
+      _RL b_ksatDVM(nGroup)
+      _RL a_ksatPARDVM(nGroup)
+      _RL b_ksatPARDVM(nGroup)
+      _RL a_ExportFracDVM(nGroup)
 
 #endif /* ALLOW_DARWIN */
 

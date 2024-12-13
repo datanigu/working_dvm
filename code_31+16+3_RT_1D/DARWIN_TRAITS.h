@@ -164,8 +164,12 @@ C     ksatDOC            :: [mmol C m^-3]   half-saturation of DOC for bacterial
 C     ksatDOP            :: [mmol P m^-3]   half-saturation of DOP for bacterial growth
 C     ksatDOFe           :: [mmol Fe m^-3]  half-saturation of DOFe for bacterial growth
 C- PAR preference
-C     PARpref       :: [µEin/m2/s]     preferred PAR isolume for determining DVM
-
+C     PARpref            :: [uEin m^-2 s^-1] preferred PAR isolume for determining DVM
+C- Light-mediated mortality for DVM
+C     mortmaxDVM         :: [s^-1]           maximum mortality rate related to PAR for DVM
+C     ksatDVM            :: [mmol C m^-3]    half saturation for DVM mortality
+C     ksatPARDVM         :: [uEin m^-2 s^-1] half sat for light limitation for DVM
+C     ExportFracDVM      :: []               fraction of light-dep mortality from DVM to POM
 
 
       COMMON /DARWIN_TRAITS_r/
@@ -253,7 +257,11 @@ C     PARpref       :: [µEin/m2/s]     preferred PAR isolume for determining DV
      &    ksatDOC,
      &    ksatDOP,
      &    ksatDOFe,
-     &    PARpref
+     &    PARpref, 
+     &    mortmaxDVM,
+     &    ksatDVM,
+     &    ksatPARDVM,
+     &    ExportFracDVM
       _RL Xmin(nplank)
       _RL amminhib(nplank)
       _RL acclimtimescl(nplank)
@@ -339,6 +347,10 @@ C     PARpref       :: [µEin/m2/s]     preferred PAR isolume for determining DV
       _RL ksatDOP(nplank)
       _RL ksatDOFe(nplank)
       _RL PARpref(nplank)
+      _RL mortmaxDVM(nplank)
+      _RL ksatDVM(nplank)
+      _RL ksatPARDVM(nplank)
+      _RL ExportFracDVM(nplank)
 
 
 C--   COMMON /DARWIN_DEPENDENT_TRAITS_i/ Dependent and constant (not read-in) parameters

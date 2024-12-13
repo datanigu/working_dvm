@@ -128,7 +128,11 @@
      &    ksatDOC,
      &    ksatDOP,
      &    ksatDOFe,
-     &    PARpref
+     &    PARpref,
+     &    mortmaxDVM,
+     &    ksatDVM,
+     &    ksatPARDVM,
+     &    ExportFracDVM
 
       NAMELIST/DARWIN_DEPENDENT_TRAITS/
 #ifndef DARWIN_ALLOW_GEIDER

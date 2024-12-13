@@ -274,7 +274,14 @@
      &    grp_ExportFracPreyPred,
      &    grp_ass_eff,     
      &    a_PARpref,
-     &    b_PARpref
+     &    b_PARpref,
+     &    a_mortmaxDVM,
+     &    b_mortmaxDVM,
+     &    a_ksatDVM,
+     &    b_ksatDVM,
+     &    a_ksatPARDVM,
+     &    b_ksatPARDVM,
+     &    a_ExportFracDVM
 
 
 
@@ -568,6 +575,13 @@ C     [Mongin 2006]
       grp_ass_eff = 0.7 _d 0
       a_PARpref = 0.0046 _d 0![uE/m2/s=~10^-3 W/m2, Bianchi_etal.2013]
       b_PARpref = 0.00 _d 0
+      a_mortmaxDVM = 0.8 _d 0/pday !ImaxHP from Bianchi et al, from Stock and Dunne
+      b_mortmaxDVM = -0.16 _d 0 ! same as b_grazemax, same as Hansen
+      a_ksatDVM = 1.0 _d 0 /a_R_NC ! KZ from Bianchi et al., from Hansen
+      b_ksatDVM = 0.0 _d 0 ! assume not size dependent
+      a_ksatPARDVM = 0.46 _d 0 !Kirr in Bianchi etal 2013
+      b_ksatPARDVM = 0.0 _d 0 ! assume no size dependence
+      a_ExportFracDVM = 0.5 _d 0 !no size dependence
 
       READ(UNIT=iUnit, NML=DARWIN_TRAIT_PARAMS)
 
