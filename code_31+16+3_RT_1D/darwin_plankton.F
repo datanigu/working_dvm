@@ -1638,19 +1638,6 @@ C====== Light-dependent mortality from DVM ====
      &          PARtot/((ksatDVM(jp)/(ksatDVM(jp)+Xe))*
      &          ksatPARDVM(jp)+PARtot)
      &          *Xe !Assume DVM mortality scales with own biomass
-        IF (mortDVM_c .GT. 0) THEN
-C        IF (PARtot .GT. 0) THEN
-C         print*,'daytime'
-C         print*,'mortmaxDVM',mortmaxDVM(jp)
-C         print*,'Xe',Xe
-C         print*,'ksatDVM(jp)',ksatDVM(jp)
-C         print*,'PARtot',PARtot
-C         print*,'ksatPARDVM(jp)',ksatPARDVM(jp)
-C         print*,'mortDMV_c',mortDVM_c
-         print*,'gTr(ic+jp-1) before subtraction', gTr(ic+jp-1)
-C        ENDIF
-        ENDIF
-
 
            gTr(ic+jp-1) = gTr(ic+jp-1) - mortDVM_c 
 #ifdef DARWIN_ALLOW_NQUOTA
@@ -1666,18 +1653,8 @@ C        ENDIF
         gTr(ife+jp-1)=gTr(ife+jp-1) - mortDVM_c(jp)*Qfe(jp)
 #endif
 
-
-        IF (mortDVM_c .GT. 0) THEN
-         print*,'mortDVM_c before adding to DOC',mortDVM_c
-         print*,'ExportFracDVM(jp)',ExportFracDVM(jp)
-         print*,'mortDVM_DOC, POC before',mortDVM_DOC, mortDVM_POC
         mortDVM_DOC = mortDVM_DOC + (1.-ExportFracDVM(jp))*mortDVM_c
         mortDVM_POC = mortDVM_POC + ExportFracDVM(jp)*mortDVM_c
-
-         print*,'mortDVM_DOC, POC after', mortDVM_DOC, mortDVM_POC
-         print*,'gTr(ic+jp-1) after subtraction', gTr(ic+jp-1)
-         print*,' '
-        ENDIF
 
 #ifdef DARWIN_ALLOW_NQUOTA
         mortDVM_DON = mortDVM_DON + (1.-ExportFracDVM(jp))*mortDVM_c*Qn
