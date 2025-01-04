@@ -169,6 +169,7 @@ C- Light-mediated mortality for DVM
 C     mortmaxDVM         :: [s^-1]           maximum mortality rate related to PAR for DVM
 C     ksatDVM            :: [mmol C m^-3]    half saturation for DVM mortality
 C     ksatPARDVM         :: [uEin m^-2 s^-1] half sat for light limitation for DVM
+C     fracPARmort        :: []               fraction of mortality from light-dependent mortality
 C     ExportFracDVM      :: []               fraction of light-dep mortality from DVM to POM
 
 
@@ -261,6 +262,7 @@ C     ExportFracDVM      :: []               fraction of light-dep mortality fro
      &    mortmaxDVM,
      &    ksatDVM,
      &    ksatPARDVM,
+     &    fracPARmort,
      &    ExportFracDVM
       _RL Xmin(nplank)
       _RL amminhib(nplank)
@@ -350,6 +352,7 @@ C     ExportFracDVM      :: []               fraction of light-dep mortality fro
       _RL mortmaxDVM(nplank)
       _RL ksatDVM(nplank)
       _RL ksatPARDVM(nplank)
+      _RL fracPARmort(nplank)
       _RL ExportFracDVM(nplank)
 
 

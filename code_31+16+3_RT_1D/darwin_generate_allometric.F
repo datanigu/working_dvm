@@ -264,6 +264,7 @@ C light-dependent mortality for DVM
         mortmaxDVM(jp) = a_mortmaxDVM(g) * biovol(jp)**b_mortmaxDVM(g)
         ksatDVM(jp) = a_ksatDVM(g)* biovol(jp)**b_ksatDVM(g)
         ksatPARDVM(jp) = a_ksatPARDVM(g)* biovol(jp)**b_ksatPARDVM(g)
+        fracPARmort(jp) = a_fracPARmort(g)*biovol(jp)**b_fracPARmort(g)
         ExportFracDVM(jp) = a_ExportFracDVM(g)
 
 C respRate rate is given in terms of carbon content

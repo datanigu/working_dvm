@@ -148,5 +148,7 @@
  a_bioswimDVM(:) = 8*0., 0.03, 1*0.0,
  a_mortmaxDVM(1:8) = 8*0., 
  a_mortmaxDVM(10) = 0.0,
+ a_fracPARmort(1:8) = 8*0.,
+ a_fracPARmort(10) = 0.0,
 
  /

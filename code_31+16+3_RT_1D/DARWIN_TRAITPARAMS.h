@@ -461,6 +461,8 @@ C
      &    b_ksatDVM,
      &    a_ksatPARDVM,
      &    b_ksatPARDVM,
+     &    a_fracPARmort,
+     &    b_fracPARmort,
      &    a_ExportFracDVM
       _RL logvolbase
       _RL logvolinc
@@ -604,6 +606,8 @@ C
       _RL b_ksatDVM(nGroup)
       _RL a_ksatPARDVM(nGroup)
       _RL b_ksatPARDVM(nGroup)
+      _RL a_fracPARmort(nGroup)
+      _RL b_fracPARmort(nGroup)
       _RL a_ExportFracDVM(nGroup)
 
 #endif /* ALLOW_DARWIN */

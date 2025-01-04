@@ -132,6 +132,7 @@
      &    mortmaxDVM,
      &    ksatDVM,
      &    ksatPARDVM,
+     &    fracPARmort,
      &    ExportFracDVM
 
       NAMELIST/DARWIN_DEPENDENT_TRAITS/
