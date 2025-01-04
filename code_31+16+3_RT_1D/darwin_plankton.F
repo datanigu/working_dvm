@@ -1640,20 +1640,7 @@ C====== Light-dependent mortality from DVM ====
      &          ksatPARDVM(jp)+PARtot))
      &          )
      &          *Xe !Assume DVM mortality scales with own biomass
-        IF (PARtot .GT. 0) THEN
-         print*,'fracPARmort(jp)',fracPARmort(jp)
-        IF (mortDVM_c .GT. 0) THEN
-         print*,'daytime'
-         print*,'mortmaxDVM',mortmaxDVM(jp)
-         print*,'Xe',Xe
-         print*,'ksatDVM(jp)',ksatDVM(jp)
-         print*,'fracPARmort(jp)',fracPARmort(jp)
-         print*,'PARtot',PARtot
-         print*,'ksatPARDVM(jp)',ksatPARDVM(jp)
-         print*,'mortDMV_c',mortDVM_c
-         print*,'gTr(ic+jp-1) before subtraction', gTr(ic+jp-1)
-        ENDIF
-        ENDIF
+
 
            gTr(ic+jp-1) = gTr(ic+jp-1) - mortDVM_c 
 #ifdef DARWIN_ALLOW_NQUOTA
