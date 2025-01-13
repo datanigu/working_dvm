@@ -131,7 +131,8 @@
  b_grazemax(9)= -0.16,
 #
  a_mort(:)= 8*8e-07, 2*2e-7,
- a_mort2(:)= 8*6.e-7, 8.e-7,  ! 16*.6/120/day
+! a_mort2(:)= 8*6.e-7, 8.e-7, !original ! 16*.6/120/day
+ a_mort2(:)= 8*6.e-7, 0.0,  ! no quad mort for zoopl
  a_phytoTempExp2= 8*.0003,
  a_R_PC(:)= 10*0.008333333333333333, 
  a_R_FeC(:)= 4*0.008333333333333333E-3, 2*0.03333333333333333E-3, 2*0.008333333333333333E-3, 2*0.008333333333333333E-3,
@@ -145,7 +146,7 @@
 
 #
 # a_bioswimDVM(:) = 8*0., 0.03, 1*0. !This is the ideal speed
- a_bioswimDVM(:) = 8*0., 0.03, 1*0.0,
+ a_bioswimDVM(:) = 8*0., 0.03, 0.0,
  a_mortmaxDVM(1:8) = 8*0., 
  a_mortmaxDVM(10) = 0.0,
  a_fracPARmort(1:8) = 8*0.,
