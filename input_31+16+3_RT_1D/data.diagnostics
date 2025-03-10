@@ -12,7 +12,7 @@
  &diagnostics_list
 #
   filename( 1) = 'biomass_c',
-  frequency(1) = 3600.,
+  frequency(1) = 43200.,
 #  frequency(1) = 2592000.,
 # frequency(1) = 31104000.,
 # frequency(1) = 155520000.,
@@ -88,7 +88,7 @@
   fields(70,1) = 'TRAC70  ',
 #
   filename( 2) = 'chl',
-  frequency(2) = 3600.,
+  frequency(2) = 43200.,
 #  frequency(2) = 2592000.,
 # frequency(2) = 31104000.,
 # frequency(2) = 155520000.,
@@ -125,7 +125,7 @@
   fields(31,2) = 'TRAC0b  ',
 
   filename(  6) = 'General',
-  frequency(6) = 3600.,
+  frequency(6) = 43200.,
 #  frequency(6) = 2592000.,
   fields(1, 6) = 'PP      ',
   fields(2, 6) = 'Nfix    ',
@@ -137,7 +137,7 @@
   fields(8, 6) = 'plankC  ',
 
   filename( 7) = 'General_2',
-  frequency(7) = 3600.,
+  frequency(7) = 43200.,
 #  frequency(7) = 2592000.,
   fields(1, 7) = 'surfPAR ',
   fields(2, 7) = 'DARice  ',
@@ -146,7 +146,7 @@
 
 #
   filename( 3) = 'iops',
-  frequency(3) = 3600.,
+  frequency(3) = 43200.,
 #  frequency(3) = 2592000.,
 # frequency(3) = 31104000.,
 # frequency(3) = 155520000.,
@@ -232,7 +232,7 @@
 
 #
   filename( 4) = 'par',
-  frequency(4) = 3600.,
+  frequency(4) = 43200.,
 #  frequency(4) = 2592000.,
 # frequency(4) = 31104000.,
 # frequency(4) = 155520000.,
@@ -291,7 +291,7 @@
 #
 #
   filename( 5) = 'nutr_tend',
-  frequency(5) = 3600.,
+  frequency(5) = 43200.,
 #  frequency(5) = 2592000.,
 # frequency(5) = 31104000.,
 # frequency(5) = 155520000.,
@@ -315,7 +315,7 @@
   fields(18,5) = 'S_Fe    ',
 #
   filename( 11) = 'PP',
-  frequency(11) = 3600.,
+  frequency(11) = 43200.,
 #  frequency(11) = 2592000.,
 # frequency(7) = 31104000.,
   fields(  1,11) = 'PP0001  ',
@@ -351,7 +351,7 @@
   fields( 31,11) = 'PP0031  ',
 #
   filename( 8) = 'GR',
-  frequency(8) = 3600.,
+  frequency(8) = 43200.,
 #  frequency(8) = 2592000.,
 # frequency(8) =  31104000.,
   fields(  1,8) = 'GR0001  ',
@@ -407,7 +407,7 @@
 
  
   filename( 9) = 'RRS',
-  frequency(9) = 3600.,
+  frequency(9) = 43200.,
 #  frequency(9) = 2592000.,
 # frequency(9) = 31104000.,
   fields(  1,9) = 'Rirr001 ',
