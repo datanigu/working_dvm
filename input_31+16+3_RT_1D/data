@@ -40,8 +40,8 @@ implicitViscosity=.true.,
 allowFreezing=.false.,
 useSingleCpuIO=.TRUE.,
 useCDscheme=.FALSE.,
-tempAdvScheme = 1,
-saltAdvScheme = 1,
+tempAdvScheme = 3,
+saltAdvScheme = 3,
 writeBinaryPrec= 64,
 /
 
