@@ -128,11 +128,11 @@
 #
  grp_ExportFracPreyPred(1:8,9)= 8*.8,
  a_R_ChlC(9:11)= 3*0.,
- a_grazemax(10)= 3.4722000000000000E-05,  ! prowe values
- b_grazemax(10)= -0.16,
+ a_grazemax(9:10)= 2*3.4722000000000000E-05,  ! prowe values
+ b_grazemax(9:10)= 2*-0.16,
 #
  a_mort(:)= 8*8e-07, 3*2e-7,
- a_mort2(:)= 8*6.e-7, 3*8.e-7,  ! 16*.6/120/day
+ a_mort2(:)= 8*6.e-7, 2*0.0, 8.e-7,!bact value from original 31+32+3! 16*.6/120/day
  a_phytoTempExp2= 8*.0003,
  a_R_PC(:)= 11*0.008333333333333333, 
  a_R_FeC(:)= 4*0.008333333333333333E-3, 2*0.03333333333333333E-3, 2*0.008333333333333333E-3, 3*0.008333333333333333E-3,
@@ -143,4 +143,10 @@
  b_kgrazesat(:)= 11*0,
 #
  grp_ass_eff(:,:)=121*0.32,
+
+ a_bioswimDVM(:) = 8*0., 2*0.03, 0. !This is the ideal speed
+ a_mortmaxDVM(1:8) = 8*0., 
+ a_mortmaxDVM(11) = 0.0,
+ a_fracPARmort(1:8) = 8*0.,
+ a_fracPARmort(11) = 0.0,
  /
