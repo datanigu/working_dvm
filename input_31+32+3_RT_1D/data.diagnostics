@@ -4,7 +4,8 @@
  &diagnostics_list
 #
   filename( 1) = 'biomass_c',
-  frequency(1) = 2592000.,
+  frequency(1) = 43200.,
+# frequency(1) = 2592000.,
 # frequency(1) = 31104000.,
 # frequency(1) = 155520000.,
   fields( 1,1) = 'TRAC01  ',
@@ -95,7 +96,8 @@
   fields(86,2) = 'TRAC86  ',
 #
   filename( 2) = 'chl',
-  frequency(2) = 2592000.,
+  frequency(2) = 43200.,
+# frequency(2) = 2592000.,
 # frequency(2) = 31104000.,
 # frequency(2) = 155520000.,
   fields( 1,2) = 'TRAC87  ',
@@ -131,7 +133,8 @@
   fields(31,2) = 'TRAC0r  ',
 
   filename(  6) = 'General',
-  frequency(6) = 2592000.,
+  frequency(6) = 43200.,  
+ # frequency(6) = 2592000.,
   fields(1, 6) = 'PP      ',
   fields(2, 6) = 'Nfix    ',
   fields(3, 6) = 'Denit   ',
@@ -140,12 +143,11 @@
   fields(6, 6) = 'PAR     ',
   fields(7, 6) = 'Chl     ',
   fields(8, 6) = 'plankC  ',
-  fields(9, 6) = 'gPARF   ',
-  fields(10,6) = 'PARF    ',
 
 
   filename( 12) = 'General_2',
-  frequency(12) = 2592000.,
+  frequency( 12) = 43200.,
+ # frequency(12) = 2592000.,
   fields(1, 12) = 'surfPAR ',
   fields(2, 12) = 'DARice  ',
   fields(3, 12) = 'MXLDEPTH',
@@ -153,8 +155,9 @@
 
 #
   filename( 3) = 'iops',
+  frequency(3) = 43200.,
 # frequency(3) = 2592000.,
-  frequency(3) = 31104000.,
+#  frequency(3) = 31104000.,
 # frequency(3) = 155520000.,
   fields(  1,3) = 'a001    ',
   fields(  2,3) = 'a002    ',
@@ -238,8 +241,9 @@
 
 #
   filename( 4) = 'par',
+  frequency(4) = 43200.,
 # frequency(4) = 2592000.,
-  frequency(4) = 31104000.,
+#  frequency(4) = 31104000.,
 # frequency(4) = 155520000.,
   fields(  1,4) = 'Ed001   ',
   fields(  2,4) = 'Ed002   ',
@@ -292,26 +296,12 @@
   fields( 49,4) = 'PAR010  ',
   fields( 50,4) = 'PAR011  ',
   fields( 51,4) = 'PAR012  ',
-  fields( 52,4) = 'PAR013  ',
-#  fields( 53,4) = 'gPARF   ',
-#  fields( 53,4) = 'gPARF001',
-#  fields( 54,4) = 'gPARF002',
-#  fields( 55,4) = 'gPARF003',
-#  fields( 56,4) = 'gPARF004',
-#  fields( 57,4) = 'gPARF005',
-#  fields( 58,4) = 'gPARF006',
-#  fields( 59,4) = 'gPARF007',
-#  fields( 60,4) = 'gPARF008',
-#  fields( 61,4) = 'gPARF009',
-#  fields( 62,4) = 'gPARF010',
-#  fields( 63,4) = 'gPARF011',
-#  fields( 64,4) = 'gPARF012',
-#  fields( 65,4) = 'gPARF013',
-  
+  fields( 52,4) = 'PAR013  ',  
 #
 #
   filename( 5) = 'nutr_tend',
-  frequency(5) = 31104000.,
+  frequency(5) = 43200.,
+#  frequency(5) = 31104000.,
 # frequency(5) = 155520000.,
 # frequency(5) = 2592000.,
   fields( 1,5) = 'Tp_gTr01  ',
@@ -334,6 +324,7 @@
   fields(18,5) = 'S_Fe    ',
 #
   filename( 7) = 'PP',
+  frequency(7) = 43200.,
 # frequency(7) = 2592000.,
   frequency(7) = 31104000.,
   fields(  1,7) = 'PP0001  ',
@@ -369,8 +360,9 @@
   fields( 31,7) = 'PP0031  ',
 #
   filename( 8) = 'GR',
-# frequency(8) = 2592000.,
-  frequency(8) =  31104000.,
+  frequency(8) = 43200.,
+#  frequency(8) = 2592000.,
+# frequency(8) =  31104000.,
   fields(  1,8) = 'GR0001  ',
   fields(  2,8) = 'GR0002  ',
   fields(  3,8) = 'GR0003  ',
@@ -440,8 +432,9 @@
 
  
   filename( 9) = 'RRS',
+  frequency(9) = 43200.,
 # frequency(9) = 2592000.,
-  frequency(9) = 31104000.,
+# frequency(9) = 31104000.,
   fields(  1,9) = 'Rirr001 ',
   fields(  2,9) = 'Rirr002 ',
   fields(  3,9) = 'Rirr003 ',
@@ -457,8 +450,9 @@
   fields( 13,9) = 'Rirr013 ',
 
   filename( 10) = 'GRGN',
+  frequency(10) = 43200.,
 # frequency(10) = 2592000.,
-  frequency(10) = 31104000.,
+# frequency(10) = 31104000.,
   fields(  1,10) = 'GrGn0001  ',
   fields(  2,10) = 'GrGn0002  ',
   fields(  3,10) = 'GrGn0003  ',
