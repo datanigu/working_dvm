@@ -144,7 +144,8 @@
 #
  grp_ass_eff(:,:)=121*0.32,
 
- a_bioswimDVM(:) = 8*0., 2*0.03, 0. !This is the ideal speed
+ # a_bioswimDVM(:) = 9*0., 0.03, 0. !This is the ideal speed
+ a_bioswimDVM(:) = 9*0., 0.00, 0. !This is the ideal speed
  a_mortmaxDVM(1:8) = 8*0., 
  a_mortmaxDVM(11) = 0.0,
  a_fracPARmort(1:8) = 8*0.,
