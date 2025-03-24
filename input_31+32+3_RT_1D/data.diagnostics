@@ -1,11 +1,19 @@
 # Gud diagnostics
 # ==================
+# PAR                 Photosynthetically active radiation
+# PP                  Primary production
+# Nfix                Nitrogen fixation
+# Rstar01             Rstar^PO4 of Phy01
+# Diver1              # Phy species over absolute threshold'
+# Diver2              # Phy species over threshold for proportion of biomass'
+# Diver3              # Phy species constituting bulk of biomass'
+# Diver4              # Phy species over threshold for ratio to maximum species'
 #
  &diagnostics_list
 #
   filename( 1) = 'biomass_c',
   frequency(1) = 43200.,
-# frequency(1) = 2592000.,
+#  frequency(1) = 2592000.,
 # frequency(1) = 31104000.,
 # frequency(1) = 155520000.,
   fields( 1,1) = 'TRAC01  ',
@@ -97,7 +105,7 @@
 #
   filename( 2) = 'chl',
   frequency(2) = 43200.,
-# frequency(2) = 2592000.,
+#  frequency(2) = 2592000.,
 # frequency(2) = 31104000.,
 # frequency(2) = 155520000.,
   fields( 1,2) = 'TRAC87  ',
@@ -133,8 +141,8 @@
   fields(31,2) = 'TRAC0r  ',
 
   filename(  6) = 'General',
-  frequency(6) = 43200.,  
- # frequency(6) = 2592000.,
+  frequency(6) = 43200.,
+# frequency(6) = 2592000.,
   fields(1, 6) = 'PP      ',
   fields(2, 6) = 'Nfix    ',
   fields(3, 6) = 'Denit   ',
@@ -144,10 +152,9 @@
   fields(7, 6) = 'Chl     ',
   fields(8, 6) = 'plankC  ',
 
-
   filename( 12) = 'General_2',
-  frequency( 12) = 43200.,
- # frequency(12) = 2592000.,
+  frequency(12) = 43200.,
+#  frequency(12) = 2592000.,
   fields(1, 12) = 'surfPAR ',
   fields(2, 12) = 'DARice  ',
   fields(3, 12) = 'MXLDEPTH',
@@ -296,7 +303,7 @@
   fields( 49,4) = 'PAR010  ',
   fields( 50,4) = 'PAR011  ',
   fields( 51,4) = 'PAR012  ',
-  fields( 52,4) = 'PAR013  ',  
+  fields( 52,4) = 'PAR013  ',
 #
 #
   filename( 5) = 'nutr_tend',
@@ -325,8 +332,8 @@
 #
   filename( 7) = 'PP',
   frequency(7) = 43200.,
-# frequency(7) = 2592000.,
-  frequency(7) = 31104000.,
+#  frequency(7) = 2592000.,
+# frequency(7) = 31104000.,
   fields(  1,7) = 'PP0001  ',
   fields(  2,7) = 'PP0002  ',
   fields(  3,7) = 'PP0003  ',
