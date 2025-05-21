@@ -151,7 +151,7 @@
  a_mortmaxDVM(1:8) = 8*0.,
 # a_mortmaxDVM(9:10) = 2*8.389E-4, !Experimenting with light-dep mort
  a_mortmaxDVM(11) = 0.0,
- a_ksatPARDVM(9:10) = 2*0.046,! Experimenting
+# a_ksatPARDVM(9:10) = 2*0.046,! Experimenting
  a_fracPARmort(1:8) = 8*0.,
  a_fracPARmort(11) = 0.0,
  /
