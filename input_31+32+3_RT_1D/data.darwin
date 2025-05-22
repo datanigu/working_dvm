@@ -146,7 +146,7 @@
 
 # a_bioswimDVM(:) = 9*0., 0.03, 0., !This is the ideal speed from Bianchi et al., 2013
 # a_bioswimDVM(:) = 11*0., ! No DVM
- a_bioswimDVM(:) = 9*0., 3.72, 0.,!Swim 3 bodylength/s = 6 radii/s
+ a_bioswimDVM(:) = 9*0., 3.72E-6, 0.,
  b_bioswimDVM(:) = 11*0.333, !Scales with radius
  a_mortmaxDVM(1:8) = 8*0.,
 # a_mortmaxDVM(9:10) = 2*8.389E-4, !Experimenting with light-dep mort
