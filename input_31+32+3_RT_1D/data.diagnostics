@@ -13,7 +13,7 @@
 #
   filename( 1) = 'biomass_c',
   frequency(1) = 21600.,
-#  frequency(1) = 2592000.,
+# frequency(1) = 2592000.,
 # frequency(1) = 31104000.,
 # frequency(1) = 155520000.,
   fields( 1,1) = 'TRAC01  ',
@@ -105,7 +105,7 @@
 #
   filename( 2) = 'chl',
   frequency(2) = 21600.,
-#  frequency(2) = 2592000.,
+# frequency(2) = 2592000.,
 # frequency(2) = 31104000.,
 # frequency(2) = 155520000.,
   fields( 1,2) = 'TRAC87  ',
