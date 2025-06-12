@@ -131,7 +131,7 @@
  a_grazemax(9:10)= 2*3.4722000000000000E-05,  ! prowe values
  b_grazemax(9:10)= 2*-0.16,
 #
- a_mort(:)= 8*8e-07, 3*2e-7,
+ a_mort(:)= 8*8e-07, 2*4e-7, 1*2e-7 !3*2e-7,
  a_mort2(:)= 8*6.e-7, 2*0.0, 8.e-7,!bact value from original 31+32+3! 16*.6/120/day
  a_phytoTempExp2= 8*.0003,
  a_R_PC(:)= 11*0.008333333333333333, 
@@ -149,9 +149,10 @@
  a_bioswimDVM(:) = 9*0., 3.72E-6, 0.,
  b_bioswimDVM(:) = 11*0.333, !Scales with radius
  a_mortmaxDVM(1:8) = 8*0.,
-# a_mortmaxDVM(9:10) = 2*8.389E-4, !Experimenting with light-dep mort
+ a_mortmaxDVM(9:10) = 2*8.389E-5, !Experimenting with light-dep mort
  a_mortmaxDVM(11) = 0.0,
 # a_ksatPARDVM(9:10) = 2*0.046,! Experimenting
  a_fracPARmort(1:8) = 8*0.,
  a_fracPARmort(11) = 0.0,
+ a_PARpref(9:10) = 2*0.00046,
  /
