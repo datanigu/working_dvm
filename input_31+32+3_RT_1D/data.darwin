@@ -144,15 +144,20 @@
 #
  grp_ass_eff(:,:)=121*0.32,
 
-# a_bioswimDVM(:) = 9*0., 0.03, 0., !This is the ideal speed from Bianchi et al., 2013
-# a_bioswimDVM(:) = 11*0., ! No DVM
+
  a_bioswimDVM(:) = 9*0., 3.72E-6, 0.,
- b_bioswimDVM(:) = 11*0.333, !Scales with radius
- a_mortmaxDVM(1:8) = 8*0.,
- a_mortmaxDVM(9:10) = 2*8.389E-5, !Experimenting with light-dep mort
- a_mortmaxDVM(11) = 0.0,
-# a_ksatPARDVM(9:10) = 2*0.046,! Experimenting
- a_fracPARmort(1:8) = 8*0.,
- a_fracPARmort(11) = 0.0,
+ b_bioswimDVM(:) = 11*0.333, 
+ a_mortmaxDVM(:) = 8*0.,2*8.389E-5,0.0,
+ b_mortmaxDVM(:) = 11*-0.16,
+ a_ksatPARDVM(9:10) = 2*0.46,
+ b_ksatPARDVM(9:10) = 2*0.0,
+ a_fracPARmort(:) = 8*0.,2*0.9, 0.0, 
+ b_fracPARmort(:) = 11*0.0,
  a_PARpref(9:10) = 2*0.00046,
+ b_PARpref(9:10) = 2*0.0,
+ a_ksatDVM(9:10) = 2*7.5, 
+ b_ksatDVM(9:10) = 2*0.0,
+ a_fracPARmort(9:10) = 2*0.9,
+ b_fracPARmort(9:10) = 2*0.0,
+ a_ExportFracDVM(9:10) = 2*0.5, 
  /
