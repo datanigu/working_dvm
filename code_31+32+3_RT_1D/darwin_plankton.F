@@ -1658,22 +1658,13 @@ C====== Light-dependent mortality from DVM ====
 
         mortDVM_DOC = mortDVM_DOC + (1.-ExportFracDVM(jp))*mortDVM_c
         mortDVM_POC = mortDVM_POC + ExportFracDVM(jp)*mortDVM_c
-
-#ifdef DARWIN_ALLOW_NQUOTA
         mortDVM_DON = mortDVM_DON + (1.-ExportFracDVM(jp))*mortDVM_c*Qn
         mortDVM_PON = mortDVM_PON + ExportFracDVM(jp)*mortDVM_c*Qn
-#endif
-#ifdef DARWIN_ALLOW_PQUOTA
         mortDVM_DOP = mortDVM_DOP + (1.-ExportFracDVM(jp))*mortDVM_c*Qp
         mortDVM_POP = mortDVM_POP + ExportFracDVM(jp)*mortDVM_c*Qp
-#endif
-#ifdef DARWIN_ALLOW_FEQUOTA
         mortDVM_DOFe = mortDVM_DOFe + (1.-ExportFracDVM(jp))*mortDVM_c*Qfe
         mortDVM_POFe = mortDVM_POFe + ExportFracDVM(jp)*mortDVM_c*Qfe
-#endif
-#ifdef DARWIN_ALLOW_SIQUOTA
         mortDVM_POSi = mortDVM_POSi + *mortDVM_c*Qsi
-#endif
         ENDIF 
       ENDDO
 
