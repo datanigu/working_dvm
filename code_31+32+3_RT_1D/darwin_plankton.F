@@ -1655,16 +1655,16 @@ C====== Light-dependent mortality from DVM ====
 #ifdef DARWIN_ALLOW_FEQUOTA
         gTr(ife+jp-1)=gTr(ife+jp-1) - mortDVM_c(jp)*Qfe(jp)
 #endif
-
         mortDVM_DOC = mortDVM_DOC + (1.-ExportFracDVM(jp))*mortDVM_c
         mortDVM_POC = mortDVM_POC + ExportFracDVM(jp)*mortDVM_c
-        mortDVM_DON = mortDVM_DON + (1.-ExportFracDVM(jp))*mortDVM_c*Qn
-        mortDVM_PON = mortDVM_PON + ExportFracDVM(jp)*mortDVM_c*Qn
-        mortDVM_DOP = mortDVM_DOP + (1.-ExportFracDVM(jp))*mortDVM_c*Qp
-        mortDVM_POP = mortDVM_POP + ExportFracDVM(jp)*mortDVM_c*Qp
-        mortDVM_DOFe = mortDVM_DOFe + (1.-ExportFracDVM(jp))*mortDVM_c*Qfe
-        mortDVM_POFe = mortDVM_POFe + ExportFracDVM(jp)*mortDVM_c*Qfe
-        mortDVM_POSi = mortDVM_POSi + *mortDVM_c*Qsi
+        mortDVM_DON = mortDVM_DON + (1.-ExportFracDVM(jp))*mortDVM_c*Qn(jp)
+        mortDVM_PON = mortDVM_PON + ExportFracDVM(jp)*mortDVM_c*Qn(jp)
+        mortDVM_DOP = mortDVM_DOP + (1.-ExportFracDVM(jp))*mortDVM_c*Qp(jp)
+        mortDVM_POP = mortDVM_POP + ExportFracDVM(jp)*mortDVM_c*Qp(jp)
+        mortDVM_DOFe = mortDVM_DOFe + (1.-ExportFracDVM(jp))*mortDVM_c*Qfe(jp)
+        mortDVM_POFe = mortDVM_POFe + ExportFracDVM(jp)*mortDVM_c*Qfe(jp)
+        mortDVM_POSi = mortDVM_POSi + mortDVM_c*Qsi(jp)
+
         ENDIF 
       ENDDO
 
