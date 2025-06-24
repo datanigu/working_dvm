@@ -157,7 +157,5 @@
  b_PARpref(9:10) = 2*0.0,
  a_ksatDVM(9:10) = 2*7.5, 
  b_ksatDVM(9:10) = 2*0.0,
- a_fracPARmort(9:10) = 2*0.9,
- b_fracPARmort(9:10) = 2*0.0,
  a_ExportFracDVM(9:10) = 2*0.5, 
  /
