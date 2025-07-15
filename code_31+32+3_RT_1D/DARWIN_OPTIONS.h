@@ -54,6 +54,8 @@ C reduce nitrate uptake by iron limitation factor
 C allow organic matter to sink into bottom (sedimentize)
 #define DARWIN_BOTTOM_SINK
 
+C include diel vertical migration code
+#define  DARWIN_ALLOW_DVM
 
 C light
 
