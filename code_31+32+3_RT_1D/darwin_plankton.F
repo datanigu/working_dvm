@@ -1635,7 +1635,7 @@ C to DIC as if it had never been synthesized.
 C====== Light-dependent mortality from DVM ====
         IF (isPred(jp) .EQ. 1) THEN
            mortDVM_c = mortmaxDVM(jp)*Xe/(ksatDVM(jp)+Xe)*
-     &          ( (1-fracPARmort(jp)) + fracPARmort(jp)*
+     &          ( (1 _d 0 -fracPARmort(jp)) + fracPARmort(jp)*
      &          (PARtot/((ksatDVM(jp)/(ksatDVM(jp)+Xe))*
      &          ksatPARDVM(jp)+PARtot))
      &          )
