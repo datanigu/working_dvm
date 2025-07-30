@@ -131,7 +131,7 @@
  a_grazemax(9:10)= 2*3.4722000000000000E-05,  ! prowe values
  b_grazemax(9:10)= 2*-0.16,
 #
- a_mort(:)= 8*8e-07, 2*2e-6, 1*2e-7 !3*2e-7,
+ a_mort(:)= 8*8e-07, 2*6e-7, 1*2e-7 !3*2e-7,
  a_mort2(:)= 8*6.e-7, 2*0.0, 8.e-7,!bact value from original 31+32+3! 16*.6/120/day
  a_phytoTempExp2= 8*.0003,
  a_R_PC(:)= 11*0.008333333333333333, 
@@ -147,7 +147,7 @@
 
  a_bioswimDVM(:) = 9*0., 0.72E-6, 0.,!9*0., 6.99E-5, 0.,--empirical
  b_bioswimDVM(:) = 11*0.333!11*0.198,--empirically-based
- a_mortmaxDVM(:) = 8*0.,2*8.389E-4,0.0,!8*0.,2*8.389E-5,0.0,
+ a_mortmaxDVM(:) = 8*0.,2*8.389E-5,0.0,!8*0.,2*8.389E-5,0.0,
  b_mortmaxDVM(:) = 11*-0.16,
  a_ksatPARDVM(9:10) = 2*0.46,
  b_ksatPARDVM(9:10) = 2*0.0,
