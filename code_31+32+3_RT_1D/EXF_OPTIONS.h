@@ -149,7 +149,7 @@ C   ====================================================================
 
 C   Bulk formulae related flags.
 #define  ALLOW_ATM_TEMP
-#define  ALLOW_ATM_WIND
+# undef  ALLOW_ATM_WIND
 #define  ALLOW_DOWNWARD_RADIATION
 #define  ALLOW_RUNOFF
 #undef   ALLOW_RUNOFTEMP
@@ -170,7 +170,7 @@ C   unless to reproduce old results (obtained with inconsistent old code)
 #endif
 
 C   Relaxation to monthly climatologies.
-#undef ALLOW_CLIMSST_RELAXATION
+#define ALLOW_CLIMSST_RELAXATION
 #undef ALLOW_CLIMSSS_RELAXATION
 
 C   Allows to read-in seaice fraction from files (areaMaskFile)

@@ -10,9 +10,17 @@
 # twoDigitYear      = .TRUE.,
  useExfCheckRange  = .TRUE.,
 # repeatPeriod = 31104000.,
+ readStressOnCgrid= .TRUE.,
  &
 #
  &EXF_NML_02
+ ustressfile=   'input_1D_BATS/bats_taux_15x.bin',
+ vstressfile=   'input_1D_BATS/bats_tauy_15x.bin',
+ climsstfile=   'input_1D_BATS/bats_temp_surf.bin',
+ ustressperiod= -12,
+ vstressperiod= -12,
+ climsstperiod= -12,
+ climsstTauRelax= 86400.,
  &
 #
  &EXF_NML_03

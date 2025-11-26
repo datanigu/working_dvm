@@ -151,6 +151,7 @@
   fields(6, 6) = 'PAR     ',
   fields(7, 6) = 'Chl     ',
   fields(8, 6) = 'plankC  ',
+  fields(9, 6) = 'THETA   ',
 
   filename( 12) = 'General_2',
   frequency(12) = 21600.,

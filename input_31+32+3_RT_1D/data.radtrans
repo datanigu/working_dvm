@@ -26,7 +26,7 @@
  RT_EsFile(11)='input_1D_BATS/edsEs11',
  RT_EsFile(12)='input_1D_BATS/edsEs12',
  RT_EsFile(13)='input_1D_BATS/edsEs13',
- RT_E_startdate1= 19910102,
+ RT_E_startdate1= 19910101,
  RT_E_startdate2= 003000,
  RT_E_period= 3600.,
  /
