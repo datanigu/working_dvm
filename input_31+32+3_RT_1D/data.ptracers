@@ -265,6 +265,8 @@
  PTRACERS_initialFile(18)='input_1D_BATS/bats_ALK_janprof.bin',
  PTRACERS_initialFile(19)='input_1D_BATS/bats_o2_janprof.bin',
  PTRACERS_initialFile(20)=' ',
- PTRACERS_initialFile(21:86)=66*'input_1D_BATS/bats_B_janprof.bin',
+ PTRACERS_initialFile(21:67)=47*'input_1D_BATS/bats_B_janprof.bin',
+ PTRACERS_initialFile(68:77)=10*' ',
+ PTRACERS_initialFile(78:86)=9*'input_1D_BATS/bats_B_janprof.bin',
  PTRACERS_initialFile(87:117)=31*' ',
  /
